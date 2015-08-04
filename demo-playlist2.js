@@ -33,7 +33,7 @@ var DemoPlaylist2 = function () {
 
   function _clear() {
     var thead = document.querySelector("thead tr"),
-      tbody = document.getElementsByClassName("leftBody");
+      tbody = document.getElementsByClassName("secondBody");
 
     while(thead.firstChild) {
       thead.removeChild(thead.firstChild);
@@ -92,7 +92,7 @@ var DemoPlaylist2 = function () {
    
     td;
     
-       tr.className += tr.className ? " leftRows" : "leftRows";
+       tr.className += tr.className ? " secondRows" : "secondRows";
     
     // loop through cells data and construct row markup
     for (var i = index; i < (index + numOfColumns); i += 1) {
@@ -117,7 +117,7 @@ var DemoPlaylist2 = function () {
 
   function _build(cells) {
     var numOfColumns = _getNumOfColumns(cells),
-      tbody = document.getElementsByClassName("leftBody"),
+      tbody = document.getElementsByClassName("secondBody"),
       fragment = document.createDocumentFragment(),
       rows = [],
       row;

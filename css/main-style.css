@@ -5,24 +5,41 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+/*button animation effect*/
+@keyframes buttonPress {
+  0%{z-index:10;box-shadow:0 7px 0 rgba(0,0,0,0.3),0 0 0 0 rgba(149,165,166,0);}
+  60%{box-shadow:0 7px 0 rgba(0,0,0,0.3), 0 0 10px 60px rgba(149,165,166,0.2);}
+  80%{box-shadow:0 7px 0 rgba(0,0,0,0.3), 0 0 0 60px rgba(149,165,166,0.2);}
+  100%{z-index:10;box-shadow:0 7px 0 rgba(0,0,0,0.3), 0 0 10px 60px rgba(149,165,166,0);}
+}
+
+@-webkit-keyframes buttonPress {
+   0%{z-index:10;box-shadow:0 7px 0 rgba(0,0,0,0.3),0 0 0 0 rgba(255,255,255,0);}
+  60%{box-shadow:0 7px 0 rgba(0,0,0,0.3), 0 0 0 60px rgba(255,255,255,0.2);}
+  80%{box-shadow:0 7px 0 rgba(0,0,0,0.3), 0 0 0 60px rgba(255,255,255,0.2);}
+  100%{z-index:10;box-shadow:0 7px 0 rgba(0,0,0,0.3), 0 0 0 60px rgba(255,255,255,0);}
+}
+
 body {
   overflow: hidden;
   font-size:20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Montserrat', sans-serif;
   margin:0;
+  color:#ECF0F1;
 }
 
 .wrapper {
   width:100vw;
   height:100vh;
   position: relative;
-  background: rgba(0,0,0,0.3);
+  background: rgba(52,73,94,0.7);
+  overflow: hidden;
 }
 
 .wrapper:after {
   content: "";
   position: absolute;
-  background-image: url("../img/desk.JPG");
+  background-image: url("../img/jobsImage2.jpg");
   background-size: cover;
   top: 0;
   left: 0;
@@ -36,7 +53,7 @@ body {
   position: absolute;
   top:15vh;
   width:95vw;
-  height:60vh;
+  height:65vh;
   overflow:hidden; 
 }
 
@@ -62,24 +79,17 @@ body {
 
 #boardTitle {
   position: absolute;
-  left:20%;
-  top:0%;
+  left:15vw;
+  top:4.5vh;
   text-align: center;
-  color:#888;
 }
 
-#logo {
+
+.headerIcon {
   position: absolute;
-  width:23.75%;
-  height:16%;
-  left:1.5%;
-  top:0%;
-  text-align: center;
-}
-
-#logo img {
-  width:60%;
-  padding:10%;
+  width:12%;
+  left:2vh;
+  top:2vh;
 }
 
 #background  {
@@ -92,17 +102,18 @@ body {
 
 #background img {
   height:100vh;
-	width:100vw;
+  width:100vw;
   
 }
 
 h1 {
-  font-size: 5vw;
-  font-weight: 400;
-  color:#FDFDFD;
+  font-family: "Montserrat";
+  font-size: 4.2vw;
+  font-weight: 700;
+  color:#ECECEC;
   text-transform: uppercase;
   margin-top:20px;
-  letter-spacing: 0px;
+  letter-spacing: 7px;
 }
 
 /*.rows {display: none;}*/
@@ -132,200 +143,194 @@ tr {
 }
 td {
   padding-bottom: 5px;
-  font-weight: 300;
-  color:#FDFDFD;
+  color:#ECF0F1;
+  font-weight: 400;
+  font-size: 2vw;
+  text-shadow:1px 1px 0 rgba(0,0,0,0.5);
 }
 
 thead {
   display:none;
 }
  
-td:nth-child(1) {
+.rows td:nth-child(1) {
   display: block;
   clear:both;
-  font-size: 4rem;
-  color:#FDFDFD;
+  font-size: 5.5vw;
+  color:#ECF0F1;
   font-weight: 300;
+  line-height: 5.1vw;
+  padding-bottom: 2vh;
   text-transform: uppercase;
+  border-bottom: 2px solid #BDC3C7;
+  width:80%;
 }
   
-td:nth-child(2) {
+.rows td:nth-child(2) {
   display: block;
   clear:both;
-  font-size:30px;
-  font-weight: 400;
-  color:#DDD;
+  font-size:3vw;
+  font-weight: 600;
+  color:#ECF0F1;
 }
   
-td:nth-child(3) {
+.rows td:nth-child(3) {
   display: block;
+  width:48vw;
+  height:auto;
   clear:both;
   padding-top: 20px;
 }
   
-td:nth-child(3)::before {
+.rows td:nth-child(3)::before {
   content: "Summary: ";
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
-  color:#DDD;
+  color:#BFBFBF;
 }
   
-td:nth-child(4) {
+.rows td:nth-child(4) {
   display: block;
   clear:both;
 }
   
-td:nth-child(4)::before {
+.rows td:nth-child(4)::before {
   content: "Wage: ";
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
-  color:#DDD;
+  color:#BFBFBF;
 }
   
-td:nth-child(5) {
+.rows td:nth-child(5) {
   display: block;
   clear:both;
 }
   
-td:nth-child(5)::before {
-  content: "Type: ";
-  font-weight: 400;
-  text-transform: uppercase;
-  color:#DDD;
-}
-  
-td:nth-child(6) {
-  display: block;
-  clear:both;
-}
-  
-td:nth-child(6)::before {
+.rows td:nth-child(5)::before {
   content: "Posted: ";
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
-  color:#DDD;
+  color:#BFBFBF;
 }
   
-td:nth-child(7) {
+.rows td:nth-child(6) {
   display: block;
   clear:both;
 }
   
-td:nth-child(7)::before {
+.rows td:nth-child(6)::before {
   content: "Due Date: ";
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
-  color:#DDD;
+  color:#BFBFBF;
 }
   
-td:nth-child(8) {
+.rows td:nth-child(7) {
   display: block;
   clear:both;
 }
   
-td:nth-child(8)::before {
-  content: "Apply: ";
-  font-weight: 400;
+.rows td:nth-child(7)::before {
+  content: "Ref. No.: ";
+  font-weight: 600;
   text-transform: uppercase;
-  color:#DDD;
+  color:#BFBFBF;
 }
+  
     
-td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8) {
+td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7) {
   position: relative;
-  left:50vw;
-  top:-10vh;
-}
-
-.counter {
-  position: absolute;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  height:50px;
-  background-color: rgba(255,0,0,0.3);
-  text-align: center;
-}
-
-#slideBullet {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#slideBullet li {
-  display: inline-block;
-  margin:0 5px;
-
-}
-
-.clearDot {
-  width:20px;
-  height:20px;
-  border-radius: 50%;
-  border:2px solid #FDFDFD;
-}
-
-.filledDot {
-  width:20px;
-  height:20px;
-  border-radius: 50%;
-  border:2px solid #FDFDFD;
-  background-color: #FDFDFD;
+  left:28vw;
+  top:-8vh;
 }
 
 .buttonUp {
   position: absolute;
   z-index:9999;
-  width:60px;
-  height:60px;
-  background-color: rgba(0,255,0,0.5);
+  width:7vh;
+  height:7vh;
+  border-radius: 50%;
+  background-color: #1BBC9B;
   right:5vw;
-  bottom:20vh;
+  bottom:38vh;
+  box-shadow:0px 7px 0px rgba(0,0,0,0.2),0px 0px 0px 0px rgba(149,165,166,0.8);
+}
+
+.buttonUp:before {
+  content:"";
+  position: absolute;
+  width:5vh;
+  height:1vh;
+  border-radius: 4px;
+  background-color: #ECF0F1;
+  left:1vh;
+  top:3vh;
+}
+
+.buttonUp:after {
+  content:"";
+  position: absolute;
+  width:1vh;
+  height:5vh;
+  border-radius: 4px;
+  background-color: #ECF0F1;
+  left:3vh;
+  top:1vh;
 }
 
 .buttonDown {
   position: absolute;
   z-index:9999;
-  width:60px;
-  height:60px;
-  background-color: rgba(255,0,0,0.5);
+  width:7vh;
+  height:7vh;
+  border-radius: 50%;
+  background-color: #EF4836;
   right:5vw;
-  bottom:10vh;
+  bottom:28vh;
+  box-shadow:0px 7px 0px rgba(0,0,0,0.2),0px 0px 0px 0px rgba(149,165,166,0.8);
 }
 
-.leftBody {
+.buttonDown:before {
+  content:"";
+  position: absolute;
+  width:5vh;
+  height:1vh;
+  border-radius: 4px;
+  background-color: #ECF0F1;
+  left:1vh;
+  top:3vh;
+}
+
+.buttonPressed {
+ animation: buttonPress 0.6s linear forwards;
+ -webkit-animation: buttonPress 0.6s linear forwards;
+}
+
+.secondBody {
   height:40px;
   position: relative;
 }
 
-.leftRows td{
-  font-size: 25px;
-  height:20px;
-  position: relative;
-  top:0;
-}
-
-.leftRows:nth-child(2){
+.secondRows:nth-child(1) td {
   position: absolute;
-  top:40px;
+  font-family: "Montserrat";
+  top:5vh;
+  left:8vw;
+  font-weight:600;
+  font-size: 3.2vw;
+  letter-spacing: 3px;
+  color:#ECECEC;
+  text-transform: uppercase;
 }
 
-/*temporary CSS for left side*/
-  /*.leftBody {
-    max-height: 70vh;
-    height:100%;
-    overflow: hidden;
-  }
+.secondRows:nth-child(2) td {
+  position: absolute;
+  top:12vh;
+  left:8vw;
+  font-size: 2vw;
+  font-weight:400;
+  width:80vw;
+  color:#ECECEC;
+}
 
-  .leftBody tr {
-    height:auto;
-    position: relative;
-    top:0;
-  }*/
-
-/*  #sheetTable2 {
-    position: absolute;
-    height: auto;
-    opacity:1;
-  }*/
 
