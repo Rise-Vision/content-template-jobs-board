@@ -9,52 +9,49 @@
   <link rel="stylesheet" type="text/css" href="css/main-style.css">
   
   <!--Fonts-->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,800,600,400' rel='stylesheet' type='text/css'>
-  
-  
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <!-- Open Sans and Montserrat -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,800,600,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- jQuery library -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   
 </head>
   
 <body unresolved>
 <div class="wrapper">
     <!--Header-->
-  <div id="logo">
-    <img src="https://www.placehold.it/200x100" />
-  </div>
-    
+  <img src="img/jobIcon.svg" class="headerIcon" />
+  
   <div id="boardTitle">
     <h1>Current Job Opportunities</h1>
   </div>
 
-  <!-- Footer -->
-    
-    
-     <!--background-->
-    
-        <rise-google-sheet id="googleSheet"
-                           key="1dhi3P84DlwjLY5Q3W-xOzLcAzl3q58ppmyrHMw2TGBg"
-                           tab-id="1"
-                           min-row="1" 
-                           min-column="1" 
-                           max-column="12"
-                           refresh="300">
-        </rise-google-sheet>
+  <rise-google-sheet id="googleSheet"
+                     key="1dhi3P84DlwjLY5Q3W-xOzLcAzl3q58ppmyrHMw2TGBg"
+                     tab-id="1"
+                     min-row="1" 
+                     min-column="1" 
+                     max-column="12"
+                     refresh="300">
+  </rise-google-sheet>
+
   <div id="container-outer">     
-  <div id="container">
-        <!-- Example HTML structure -->
-        <table id="sheetTable">
-          <thead>
+    <div id="container">
+      <!-- Example HTML structure -->
+      <table id="sheetTable">
+        <thead>
           <tr>
             <!-- dynamically add column header titles -->
           </tr>
-          </thead>
-          <tbody id="slideBody">
-          <!-- dynamically populate table cells -->
-          </tbody>
-        </table>
-  </div> <!-- #container -->
+        </thead>
+        <tbody id="slideBody">
+        <!-- dynamically populate table cells -->
+        </tbody>
+      </table>
+    </div> <!-- #container -->
   </div>  <!-- #container-outer -->
+
   <div class="container-secondary">
      <rise-google-sheet id="googleSheet2"
                            key="1dhi3P84DlwjLY5Q3W-xOzLcAzl3q58ppmyrHMw2TGBg"
@@ -66,50 +63,26 @@
         </rise-google-sheet>
         <!-- Example HTML structure -->
           <table id="sheetTable2">
-            <thead id="leftHead">
-              <tr class="leftRow">
+            <thead id="secondHead">
+              <tr class="secondRow">
             <!-- dynamically add column header titles -->
               </tr>
             </thead>
-            <tbody class="leftBody">
+            <tbody class="secondBody">
           <!-- dynamically populate table cells -->
             </tbody>
         </table>
-  </div>
+  </div><!-- .container-secondary -->
 
   <div class="buttonUp">
-    
+    <!-- <span class="buttonEffect"></span> -->
   </div>
   <div class="buttonDown">
-    
   </div>
-  <!-- <div id="leftContainer">
-        <rise-google-sheet id="googleSheet2"
-                           key="1FvKd1HSydNUr6lbY0Fvvg9yoIgKwxEHlgR1RZClx9YY"
-                           tab-id="2"
-                           min-row="1" 
-                           min-column="1" 
-                           max-column="2"
-                           refresh="300">
-        </rise-google-sheet> -->
-        <!-- Example HTML structure -->
-        <!-- <table id="sheetTable2">
-          <thead id="leftHead">
-          <tr class="leftRow"> -->
-            <!-- dynamically add column header titles -->
-          <!-- </tr>
-          </thead>
-          <tbody class="leftBody"> -->
-          <!-- dynamically populate table cells -->
-         <!--  </tbody>
-        </table>
-  </div> -->
 
 </div> <!-- .wrapper -->
 
-<!-- Importing javascript which is the logic in building and managing the Google Sheet content -->
-<!-- <script type="text/javascript" src="demo-playlist.js"></script> -->
-
+<!-- javascript files for google sheet 1 and 2 -->
 <script type="text/javascript" src="demo-playlist.js"></script>
 <script type="text/javascript" src="demo-playlist2.js"></script>
 
@@ -136,21 +109,7 @@
   })();
 </script>
   
-  
-
 <script>
-//script for the fade in/out functionality on right hand side of template
-// var rowIndex = -1;
-    
-// function showNextRow() {
-//   rowIndex++;
-//   $(".rows").eq(rowIndex % $(".rows").length)
-//       .fadeIn(2000)
-//       .delay(2000)
-//       .fadeOut(2000);
-//   };
-// setTimeout(showNextRow,500);
-// setInterval(showNextRow,6000);
 
 var slideHeight,
     newContainerHeight,
@@ -161,14 +120,14 @@ var slideHeight,
 
 var $container = $('#container');
 
-window.scrollTo(0,400);
+// window.scrollTo(0,400);
 
 function showJobs(){
-var numberOfJobSlides = $('.rows').length;
-for (var i = 1; i < numberOfJobSlides; i++){
-  var $rows = $('.rows');
-  console.log($rows[i]);
-}
+  var numberOfJobSlides = $('.rows').length;
+  for (var i = 1; i < numberOfJobSlides; i++){
+    var $rows = $('.rows');
+    console.log($rows[i]);
+  }
 }
 setTimeout(showJobs,500);
 
@@ -192,10 +151,10 @@ var scrollMultiplier = 1;
 
 function scrollDown(){
   if (scrollMultiplier < numberOfJobs){
-  $container.animate({'top':-(slideHeight * scrollMultiplier)},5000);
-  scrollMultiplier++;
-  return scrollMultiplier;
-} else {
+    $container.animate({'top':-(slideHeight * scrollMultiplier)},5000);
+    scrollMultiplier++;
+    return scrollMultiplier;
+  } else {
     $container.css({'opacity':'0'}).delay(500).fadeIn(400).css({'top': '0','opacity':'1'});
     scrollMultiplier = 1;
   }
@@ -209,84 +168,43 @@ function scrollDown(){
  
   var downCounter = 1;
   $('.buttonUp').on('click', function(){
+    $(this).addClass('buttonPressed');
+    function removeClass(){
+      $('.buttonUp').removeClass('buttonPressed');
+    }
+    setTimeout(removeClass, 600)
     console.log('click up' + scrollMultiplier);
     clearInterval(scrollInterval);
     clearTimeout(restartTimer);
     restartTimer = setTimeout(restartEverything,10000);
     if (scrollMultiplier < numberOfJobs){
-    $container.animate({top:'-=' + slideHeight},1000);
-    scrollMultiplier++;
-    
+      $container.animate({top:'-=' + slideHeight},1000);
+      scrollMultiplier++;
     } else {
       console.log('at the top');
       scrollMultiplier = numberOfJobs;
     }
-    });
-
- 
+  });
 
   $('.buttonDown').on('click', function(){
+    $(this).addClass('buttonPressed');
+    function removeClass(){
+      $('.buttonDown').removeClass('buttonPressed');
+    }
+    setTimeout(removeClass, 600)
     console.log('click down' + scrollMultiplier);
     clearInterval(scrollInterval);
     clearTimeout(restartTimer);
     restartTimer = setTimeout(restartEverything,10000);
     downCounter--;
     if (scrollMultiplier > 1){
-    $container.animate({top:'+=' + slideHeight},1000);
-    scrollMultiplier--;
-  } else {
-    scrollMultiplier = 1;
-    console.log('at the bottom');
-  }
+      $container.animate({top:'+=' + slideHeight},1000);
+      scrollMultiplier--;
+    } else {
+      scrollMultiplier = 1;
+      console.log('at the bottom');
+    }
   });
-
-// var dotIndex = -1;
-    
-// function fillNextDot() {
-//   dotIndex++;
-//   $('#slideBullet li').eq(rowIndex % $('.rows').length)
-//       .addClass('filledDot');
-//   };
-// setTimeout(fillNextDot,500);
-// setInterval(fillNextDot,6000);
-
-// function checkAndRemove() {
-//   if ($('#slideBullet li').hasClass('filledDot')) {
-//     $('#slideBullet li').removeClass('filledDot');
-//     console.log('removed');
-//   }
-// }
-
-// setInterval(checkAndRemove,42000);
-
-
-//script for the scrolling on the left hand side of the template
-// var leftItems = document.getElementsByClassName('leftRows');
-// var leftTable = document.getElementById('sheetTable2');
-// var heightOffset = 550;
-// var heightToScroll;
-
-// function getHeight(){
-// heightToScroll = leftTable.offsetHeight;
-// return heightToScroll;
-// }
-
-// setTimeout(getHeight,1000);
-
-// var $scrollingElement = $('#sheetTable2');
-
-// function scrollDown(){
-//   $scrollingElement.delay(2000).fadeOut();
-//   $scrollingElement.animate({'top':'0'},30);
-//   $scrollingElement.fadeIn();
-//   scrollUp();
-// }
-
-// function scrollUp(){
-//   $scrollingElement.delay(2000).animate({'top': -(heightToScroll - heightOffset)},30000, "linear", scrollDown);
-// }
-
-// setTimeout(scrollUp,1100);
 
 </script>
 
