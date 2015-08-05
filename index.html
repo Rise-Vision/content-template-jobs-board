@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset=utf-8 />
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>rise-google-sheet Playlist Content Demo</title>
+  <title>Jobs Board | HTML Digital Signage Template</title>
 
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="Jobs Board">
+  <meta itemprop="description" content="The interactive Jobs Board template was created to display a series of job vacancies using the Rise Vision google sheet component.">
+  <meta itemprop="image" content="https://storage.googleapis.com/risemedialibrary-f114ad26-949d-44b4-87e9-8528afc76ce4/peter/content-template-jobs-board/img/screenshot.png">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@RiseVision">
+  <meta name="twitter:title" content="Jobs Board">
+  <meta name="twitter:description" content="The interactive Jobs Board template was created to display a series of job vacancies using the Rise Vision google sheet component.">
+  <meta name="twitter:image:src" content="https://storage.googleapis.com/risemedialibrary-f114ad26-949d-44b4-87e9-8528afc76ce4/peter/content-template-jobs-board/img/screenshot.png">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="Jobs Board" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://storage.googleapis.com/risemedialibrary-f114ad26-949d-44b4-87e9-8528afc76ce4/peter/content-template-jobs-board/index.html" />
+  <meta property="og:image" content="https://storage.googleapis.com/risemedialibrary-f114ad26-949d-44b4-87e9-8528afc76ce4/peter/content-template-jobs-board/img/screenshot.png" />
+  <meta property="og:description" content="The interactive Jobs Board template was created to display a series of job vacancies using the Rise Vision google sheet component." />
+
+  <!-- rise google sheet dependencies -->
   <script src="src/_bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <link rel="import" href="rise-google-sheet.html">
+
+  <!-- style sheet -->
   <link rel="stylesheet" type="text/css" href="css/main-style.css">
   
   <!--Fonts-->
@@ -116,8 +139,10 @@ var slideHeight,
     numberOfJobs,
     movementDistance,
     restartTimer,
-    restartInterval;
+    restartInterval
 
+var $buttonUp = $('.buttonUp');
+var $buttonDown = $('.buttonDown');
 var $container = $('#container');
 
 // window.scrollTo(0,400);
@@ -129,7 +154,7 @@ function showJobs(){
     console.log($rows[i]);
   }
 }
-setTimeout(showJobs,500);
+setTimeout(showJobs,900);
 
 function getNumberOfJobs() {
   numberOfJobs = $('.rows').length;
@@ -138,7 +163,7 @@ function getNumberOfJobs() {
   console.log(slideHeight);
   setContainerHeight();
 }
-setTimeout(getNumberOfJobs,300);
+setTimeout(getNumberOfJobs,800);
 
 function setContainerHeight() {
   newContainerHeight = numberOfJobs * slideHeight;
@@ -167,10 +192,11 @@ function scrollDown(){
   }
  
   var downCounter = 1;
-  $('.buttonUp').on('click', function(){
-    $(this).addClass('buttonPressed');
+  // $('.buttonUp').on('click', function(){
+  function moveUp(){
+    $buttonUp.addClass('buttonPressed');
     function removeClass(){
-      $('.buttonUp').removeClass('buttonPressed');
+      $buttonUp.removeClass('buttonPressed');
     }
     setTimeout(removeClass, 600)
     console.log('click up' + scrollMultiplier);
@@ -184,12 +210,13 @@ function scrollDown(){
       console.log('at the top');
       scrollMultiplier = numberOfJobs;
     }
-  });
+  };
 
-  $('.buttonDown').on('click', function(){
-    $(this).addClass('buttonPressed');
+  // $('.buttonDown').on('click', function(){
+  function moveDown(){  
+    $buttonDown.addClass('buttonPressed');
     function removeClass(){
-      $('.buttonDown').removeClass('buttonPressed');
+      $buttonDown.removeClass('buttonPressed');
     }
     setTimeout(removeClass, 600)
     console.log('click down' + scrollMultiplier);
@@ -204,7 +231,23 @@ function scrollDown(){
       scrollMultiplier = 1;
       console.log('at the bottom');
     }
-  });
+  };
+
+$buttonUp.on('click',function(){
+  moveUp();
+});
+
+$buttonUp.on({ 'touchstart' : function(){ 
+  moveUp(); 
+}});
+
+$buttonDown.on('click',function(){
+  moveDown();
+});
+
+$buttonDown.on({ 'touchstart' : function(){ 
+  moveDown(); 
+}});
 
 </script>
 
