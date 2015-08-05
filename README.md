@@ -14,13 +14,13 @@ The interactive Jobs Board template was created to display a series of job vacan
 ![diagram showing how to host folder](img/readme-step3.png)
 
 4. Copy the link to the index.html file where you have it hosted and insert the url into a schedule. (you can also add this link to the url gadget within a presentation)  
-![diagram showing where to find link to index.html](img/readme-step4.png)
+![diagram showing where to find link to index.html](img/readme-step4.jpg)
 
 ##Directions to Modify the Jobs Board Template:##
 
 
 ####Changing the Header Text
-Open index.html, locate the following code and modify the text between the <h1> tags:
+Open index.html, locate the following code and modify the text between the h1 tags:
 
 ```
 <div id="boardTitle">
