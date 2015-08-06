@@ -4,7 +4,7 @@ The interactive Jobs Board template was created to display a series of job vacan
 
 ## Steps to run the Jobs Board Template
 
-1. Fork or download the entire content-template-jobs-board repository.  
+1. Fork or download the entire content-template-jobs-board repository. You will also need to run `bower install` to install the dependencies required for the the template. Bower is a package manager for Javascript libraries and frameworks. All third-party Javascript dependencies are listed in the bower.json file. To install Bower, run the following command in Terminal: `npm install -g bower`. Should you encounter any errors, try running the following command instead: `sudo npm install -g bower`.
 ![diagram showing where to find the folder](img/readme-step1.png)
 
 2. Modify the files within the content-template-jobs-board folder directory to fit your needs (see below on how to modify specific elements).  
