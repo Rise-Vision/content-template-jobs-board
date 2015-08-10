@@ -8,7 +8,7 @@ The interactive Jobs Board template was created to display a series of job vacan
 ![diagram showing where to find the folder](img/readme-step1.png)
 
 2. Modify the files within the content-template-jobs-board folder directory to fit your needs (see below on how to modify specific elements).  
-![alt tag](img/readme-step2.png)
+![diagram showing structure of folder and files](img/readme-step2.png)
 
 3. Host the entire “content-template-jobs-board” folder directory in rise vision storage or your web hosting service.  
 ![diagram showing how to host folder](img/readme-step3.png)
@@ -66,14 +66,14 @@ The jobs text is found on sheet 1 and the the secondary text is on sheet 2.
 You can use your own public spreadsheet by locating the following code in the index.html file:
 
 ```
-<google-sheets id="googleSheet"
-               key="1dhi3P84DlwjLY5Q3W-xOzLcAzl3q58ppmyrHMw2TGBg"
-               tab-id="1"
-               min-row="1" 
-               min-column="1" 
-               max-column="12"
-               refresh="300">
-</google-sheets>
+<rise-google-sheet id="googleSheet"
+                     key="1dhi3P84DlwjLY5Q3W-xOzLcAzl3q58ppmyrHMw2TGBg"
+                     tab-id="1"
+                     min-row="1" 
+                     min-column="1" 
+                     max-column="12"
+                     refresh="300">
+  </rise-google-sheet>
 
 ```
 The columns and rows can be targeted using the min and max values. 
@@ -97,7 +97,7 @@ actual tools used
 - JQuery
 
 
-Hospital Template works in conjunction with [Rise Vision](http://www.risevision.com), the [digital signage management application](http://rva.risevision.com/) that runs on [Google Cloud](https://cloud.google.com).
+The Jobs Board template works in conjunction with [Rise Vision](http://www.risevision.com), the [digital signage management application](http://rva.risevision.com/) that runs on [Google Cloud](https://cloud.google.com).
 
 At this time Chrome is the only browser that this project and Rise Vision supports.
 
